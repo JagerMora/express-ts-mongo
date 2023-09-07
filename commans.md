@@ -33,3 +33,69 @@
 
 MVC Modelo vista controlador no es clean arquitecture
 DDD domain driven design no contiene
+
+Conectarse via consola a AWS
+
+- ssh -i ./api_Ts.pem ubuntu@34.229.23.127
+- sudo apt-get update
+- sudo apt-get upgrade
+
+instalar Nginx
+
+- sudo apt install nginx
+- sudo ufw allow 'Nginx HTTP'
+
+check server
+
+- systemctl status nginx
+
+install nodejs
+
+- cd ~
+- curl -sL https://deb.nodesource.com/setup_16 -o nodesource_setup.sh
+- sudo bash nodesource_setup.sh
+- sudo apt-get install nodejs
+
+check version
+
+- node -v
+- npm -v
+
+git clone repourl
+
+- git clone git@github.com:JagerMora/express-ts-mongo.git
+- cd routeofproject
+
+install packages
+
+- npm install
+- sudo npm i typescript -g
+- tsc -v
+- npm run build
+
+install curl
+
+- sudo apt-get install curl
+
+config mongodb
+
+- curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+- echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+- sudo apt-get update
+- sudo apt install mongodb-org
+
+iniciar mongodb
+
+- sudo systemctl start mongod.service
+- sudo systemctl status mongod.service
+
+create and config env
+
+- cp .env.example .env
+- nano .env
+- insert URI to environment variable
+
+ejecutar
+
+- sudo npm install pm2 -g
+- node ./dist/app.js
